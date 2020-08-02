@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="text">Some Text</h1>
+    <form action="" name="myForm1">
+        <input type="button" value="Hide Text" name="buttonTextHide">
+    </form>
+    <br>
+    <form action="" name="myForm2">
+        <input type="button" value="Hide mе" name="buttonHideMе">
+    </form>
+    <br>
+    <form action="" name="myForm3">
+        <input type="text" value="" placeholder="Enter your age" name="inputAge">
+        <input type="button" value="Проверить" name="buttonAgeVerification">
+    </form>
+    <br>
+    <form action="" name="myForm4">
+        <input type="button" value="Cars list" name="buttonDropDownMenu">
+    </form>
+    <ul class="dropDownCarsMenu visually-hidden">
+        <li>BMW</li>
+        <li>Masda</li>
+        <li>Mersedes</li>
+        <li>Lexus</li>
+        <li>Nissan</li>
+    </ul>
+    <form action="" name="myForm5">
+        <input type="text" value="Text 1" name="text">
+        <input type="radio" name="radio" value="1">
+        <input type="radio" name="radio" value="2">
+    </form>
+    <form action="" name="myForm6">
+        <input type="text" value="Text 2" name="text">
+        <input type="radio" name="radio" value="one">
+        <input type="radio" name="radio" value="two">
+    </form>
+    <button id="forms-data-show">Show forms info</button>
+    <br>
+    <h2>Table Generator</h2>
+    <form action="" name="formTableGenerator">
+        <input type="text" value="Введите число строк" name="tr">
+        <input type="text" value="Введите число столбцов" name="td">
+        <input type="text" value="Введите тект для ячеек" name="tdText">
+        <input type="text" value="Введите тип элемента" name="elType">
+    </form>
+    <button id="btnTableGenerator">Create Table</button>
+    <div class="carousel-wrap">
+        <h2>Карусель изображений</h2>
+        <div class="carusel-iter">
+            <button id="btnCaruselLeft" class="caruselBtns">Left</button>
+            <button id="btnCaruselRight" class="caruselBtns">Right</button>
+            <img src="https://lh3.googleusercontent.com/proxy/iAfUj6EvXk2xQ-eGYV1egaICNjIcY7XCtHIHe4QYvXnnFgNqgVsSFL3Jo2wwHxHWSnzJGz1gB2q-FL34SpZhOfj00gapnVytW7EUGNzaoHntVf2s8mHpSF3Y2NL07MauoKYCzLmu" class="carusel-img current-img" alt="some image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTelGMNakAMlYipKTqVAlpsKEuM35MwzdnA2w&usqp=CAU" class="carusel-img carusel-img-toright" alt="some image">
+            <img src="https://millionstatusov.ru/pic/statpic/all8/5e04c21a52a39.jpg" class="carusel-img carusel-img-toleft" alt="some image">
+        </div>
+    </div>
+    <form action="" name="FormObsceneWords">
+        <input type="text" value="Input text" name="text">
+    </form>
+    <button id="btnObsceneCheck">Check</button>
+    <div id="content"></div>
+    <h1>Правила бойцовского клуба</h1>
+
+    <div id="wrap">
+        <div class="rules rule1">
+            <h2>Первое правило Бойцовского клуба.</h2>
+            <p>Никому не рассказывать о Бойцовском клубе.</p>
+        </div>
+        <div class="rules rule2">
+            <h2>Второе правило Бойцовского клуба.</h2>
+            <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
+        </div>
+        <div class="rules rule3">
+            <h2>Третье правило Бойцовского клуба.</h2>
+            <p>В схватке участвуют только двое.</p>
+        </div>
+        <div class="rules rule4">
+            <h2>Четвертое правило Бойцовского клуба.</h2>
+            <p>Не более одного поединка за один раз.</p>
+        </div>
+        <div class="rules rule5">
+            <h2>Пятое правило Бойцовского клуба.</h2>
+            <p>Бойцы сражаются без обуви и голые по пояс.</p>
+        </div>
+        <div class="rules rule6">
+            <h2>Шестое правило Бойцовского клуба.</h2>
+            <p>Поединок продолжается столько, сколько потребуется.</p>
+        </div>
+        <div class="rules rule7">
+            <h2>Седьмое правило Бойцовского клуба.</h2>
+            <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок
+                окончен.</p>
+        </div>
+        <div class="rules rule8">
+            <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
+            <p>Новичок обязан принять бой.</p>
+        </div>
+    </div>
+
+    <form action="" name="filteredForm">
+        <h2>Фильтры для массивов</h2>
+        <input type="checkbox" value="falseStatus" name="falseStatus">
+        <p>falseStatus</p>
+        <input type="checkbox" value="more29" name="more29">
+        <p>29+</p>
+        <input type="checkbox" value="usersFromKiev" name="FromKiev">
+        <p>Пользователи из Киева</p>
+    </form>
+    <button id="inputUserSortedArrBtn">Вывести пользователей</button>
+    <h2>Далее</h2>
+    <script src="app.js"></script>
+</body>
+</html>

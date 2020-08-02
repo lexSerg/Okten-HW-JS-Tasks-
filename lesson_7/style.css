@@ -1,0 +1,71 @@
+.dropDownCarsMenu{
+    list-style: none;
+    padding: 0;
+    margin: 1px;
+    border: 1px solid black;
+}
+.dropDownCarsMenu li{
+    border-bottom: 1px solid black;
+    text-align: center;
+    transition: 0.2s;
+}
+.dropDownCarsMenu li:last-child{
+    border: none
+}
+.dropDownCarsMenu li:hover{
+    background-color: gray;
+    color: white;
+}
+.visually-hidden{
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+.carousel-wrap h2 {
+    text-align: center;
+}
+
+.carusel-iter {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: 0.7s;
+}
+.carusel-img{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    display: block;
+    object-fit: cover;
+    transition: 0.7s;
+}
+.carusel-img-toright{
+    left : 500px;
+}
+.carusel-img-toleft{
+    right : 500px;
+}
+.caruselBtns {
+    border : 0;
+    border-radius: 25%;
+    background-color : red;
+    opacity: 50%;
+}
+#btnCaruselLeft {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+}
+#btnCaruselRight {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    right : 0;
+}
+[name="filteredForm"] input {
+    float: left;
+}
