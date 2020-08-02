@@ -257,112 +257,142 @@
 //   }, 0)
 // })();
 
-const rand = [];
-for (let i = 1; i < 9; i++) {
-  rand.push(Math.floor(Math.random() * 5 + 1) * 1000);
-}
-function goodMorning(isGood) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (isGood) resolve("Доброе утро. Ты проснулся бодрый и отдохнувший ");
-      else
-        reject(
-          "Утро не совсем доброе, тебя разбудил звонок шефа. Время 10:00. Ты сразу взбодрился, и готов к взбучке"
-        );
-    }, rand[0]);
-  });
-}
-function cleenTeeth(isOrdinaryMorning) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (isOrdinaryMorning)
-        resolve("Чистим зубы. Зубы блестят, дыхание свежее");
-      else
-        reject(
-          "Закончилась зубная паста. На работу с грязными зубами не пойду"
-        );
-    }, rand[1]);
-  });
-}
-function haveBreakfast(isTeethClean) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (isTeethClean)
-        resolve(
-          "Позавтракал. Завтрак был вкусный и питательный, можно идти на работу"
-        );
-      else reject("Закончились куриные яйца, нужно идти в магазин");
-    }, rand[2]);
-  });
-}
-function goToWork(isBreakfastHad) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (isBreakfastHad)
-        resolve("Пришел на работу. На работу добрался во время");
-      else reject("Маршрутка сломалась, на работу не успел");
-    }, rand[3]);
-  });
-}
-function drinkCofee(isAtWork) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (isAtWork)
-        resolve(
-          "Пьем кофе с вафелькой. Теперь я точно проснулся, можно приступать к работе"
-        );
-      else reject("Закончилось кофе, работы сегодня не будет");
-    }, rand[4]);
-  });
-}
-function runWithDog(isWakeUp) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (isWakeUp) resolve("Побежали. Пробежали 10км, пес выгулялся сполна");
-      else reject("На улице дождь, пробежки сегодня не будет");
-    }, rand[5]);
-  });
-}
-function goToTraining(isRan) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (isRan) resolve("Качнем бицуху. Тренировка прошла супер!");
-      else reject("Сегодня в зал не пойду");
-    }, rand[6]);
-  });
-}
-function worksForAPlan(isTrainingDone) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (isTrainingDone)
-        resolve("По распорядку. Дальше работаем по распорядку");
-      else reject("Что то работать нет настроения");
-    }, rand[7]);
-  });
-}
-async function myDayOnAsync(start = true) {
-  try {
-    const morning = await goodMorning(start);
-    console.log(morning);
-    const teath = await cleenTeeth(morning);
-    console.log(teath);
-    const breakfast = await haveBreakfast(teath);
-    console.log(breakfast);
-    const toWork = await goToWork(breakfast);
-    console.log(toWork);
-    const cofee = await drinkCofee(toWork);
-    console.log(cofee);
-    const run = await runWithDog(cofee);
-    console.log(run);
-    const gim = await goToTraining(run);
-    console.log(gim);
-    const work = await worksForAPlan(gim);
-    console.log(work);
-  } catch (err) {
-    console.log(err);
-  }
-  console.log("========End my day=========");
-}
+// const rand = [];
+// for (let i = 1; i < 9; i++) {
+//   rand.push(Math.floor(Math.random() * 5 + 1) * 1000);
+// }
+// function goodMorning(isGood) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (isGood) resolve("Доброе утро. Ты проснулся бодрый и отдохнувший ");
+//       else
+//         reject(
+//           "Утро не совсем доброе, тебя разбудил звонок шефа. Время 10:00. Ты сразу взбодрился, и готов к взбучке"
+//         );
+//     }, rand[0]);
+//   });
+// }
+// function cleenTeeth(isOrdinaryMorning) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (isOrdinaryMorning)
+//         resolve("Чистим зубы. Зубы блестят, дыхание свежее");
+//       else
+//         reject(
+//           "Закончилась зубная паста. На работу с грязными зубами не пойду"
+//         );
+//     }, rand[1]);
+//   });
+// }
+// function haveBreakfast(isTeethClean) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (isTeethClean)
+//         resolve(
+//           "Позавтракал. Завтрак был вкусный и питательный, можно идти на работу"
+//         );
+//       else reject("Закончились куриные яйца, нужно идти в магазин");
+//     }, rand[2]);
+//   });
+// }
+// function goToWork(isBreakfastHad) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (isBreakfastHad)
+//         resolve("Пришел на работу. На работу добрался во время");
+//       else reject("Маршрутка сломалась, на работу не успел");
+//     }, rand[3]);
+//   });
+// }
+// function drinkCofee(isAtWork) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (isAtWork)
+//         resolve(
+//           "Пьем кофе с вафелькой. Теперь я точно проснулся, можно приступать к работе"
+//         );
+//       else reject("Закончилось кофе, работы сегодня не будет");
+//     }, rand[4]);
+//   });
+// }
+// function runWithDog(isWakeUp) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (isWakeUp) resolve("Побежали. Пробежали 10км, пес выгулялся сполна");
+//       else reject("На улице дождь, пробежки сегодня не будет");
+//     }, rand[5]);
+//   });
+// }
+// function goToTraining(isRan) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (isRan) resolve("Качнем бицуху. Тренировка прошла супер!");
+//       else reject("Сегодня в зал не пойду");
+//     }, rand[6]);
+//   });
+// }
+// function worksForAPlan(isTrainingDone) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (isTrainingDone)
+//         resolve("По распорядку. Дальше работаем по распорядку");
+//       else reject("Что то работать нет настроения");
+//     }, rand[7]);
+//   });
+// }
+// async function myDayOnAsync(start = true) {
+//   try {
+//     const morning = await goodMorning(start);
+//     console.log(morning);
+//     const teath = await cleenTeeth(morning);
+//     console.log(teath);
+//     const breakfast = await haveBreakfast(teath);
+//     console.log(breakfast);
+//     const toWork = await goToWork(breakfast);
+//     console.log(toWork);
+//     const cofee = await drinkCofee(toWork);
+//     console.log(cofee);
+//     const run = await runWithDog(cofee);
+//     console.log(run);
+//     const gim = await goToTraining(run);
+//     console.log(gim);
+//     const work = await worksForAPlan(gim);
+//     console.log(work);
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   console.log("========End my day=========");
+// }
+// myDayOnAsync(true);
+// console.log("========Start my Day=========");
 
-myDayOnAsync(true);
-console.log("========Start my Day=========");
+// Необхіжно реалізувати друкарську машинку.
+// У вас є інпут. Ви в нього ввожите якусь слово і тицькаєте кнопку "друкувати".
+
+// Після того як ви тикнули кнопку вам необхідно запустити функцію яка буде друкувтаи на строніці то, шо ви ввели по одній букві з рандомною затримкою від 0.1 до 0.5 секунд.
+// Тим самим симулюючи друкування цього тексту реальною людиною.
+// НА КОЖНУ БУКВА РІЗНА ЗАТРИМКА !
+// const text = document.forms.form.text;
+// text.onclick = (ev) => {
+//   if ((ev.target.innerText = "Введите текст для печати"))
+//     ev.target.innerText = "";
+// };
+// const btn = document.getElementById("btn");
+// btn.onclick = (ev) => {
+//   printDocument(text.value);
+// };
+// printDocument = (str) => {
+//   if (!str.length) return;
+//   else printer(str, 0);
+//   function printer(str, i) {
+//     if (i === str.length) {
+//       return 0;
+//     }
+//     setTimeout(() => {
+//       document.write(str[i]);
+//       if (i === str.length - 1) setTimeout(() => alert('Печать завершена'), 1000)
+//       i++;
+//       printer(str, i);
+//     }, 2000);
+//   }
+// };
