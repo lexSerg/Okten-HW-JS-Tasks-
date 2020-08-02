@@ -372,27 +372,28 @@
 // Після того як ви тикнули кнопку вам необхідно запустити функцію яка буде друкувтаи на строніці то, шо ви ввели по одній букві з рандомною затримкою від 0.1 до 0.5 секунд.
 // Тим самим симулюючи друкування цього тексту реальною людиною.
 // НА КОЖНУ БУКВА РІЗНА ЗАТРИМКА !
-// const text = document.forms.form.text;
-// text.onclick = (ev) => {
-//   if ((ev.target.innerText = "Введите текст для печати"))
-//     ev.target.innerText = "";
-// };
-// const btn = document.getElementById("btn");
-// btn.onclick = (ev) => {
-//   printDocument(text.value);
-// };
-// printDocument = (str) => {
-//   if (!str.length) return;
-//   else printer(str, 0);
-//   function printer(str, i) {
-//     if (i === str.length) {
-//       return 0;
-//     }
-//     setTimeout(() => {
-//       document.write(str[i]);
-//       if (i === str.length - 1) setTimeout(() => alert('Печать завершена'), 1000)
-//       i++;
-//       printer(str, i);
-//     }, 2000);
-//   }
-// };
+const text = document.forms.form.text;
+text.onclick = (ev) => {
+  if ((ev.target.innerText = "Введите текст для печати"))
+    ev.target.innerText = "";
+};
+const btn = document.getElementById("btn");
+btn.onclick = (ev) => {
+  printDocument(text.value);
+};
+printDocument = (str) => {
+  if (!str.length) return;
+  else printer(str, 0);
+  function printer(str, i) {
+    if (i === str.length) {
+      return 0;
+    }
+    setTimeout(() => {
+      printArea = document.getElementById('printArea');
+      printArea.innerText += str[i];
+      if (i === str.length - 1) setTimeout(() => alert('Печать завершена'), 1000)
+      i++;
+      printer(str, i);
+    }, Math.ceil(Math.abs(Math.random() + 1 - 1.5 ) * 10) * 100);
+  }
+};
