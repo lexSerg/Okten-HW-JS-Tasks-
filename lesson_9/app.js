@@ -390,6 +390,7 @@ printDocument = (str) => {
     }
     setTimeout(() => {
       printArea = document.getElementById('printArea');
+      printArea.innerText +=str[i];
       console.log(str[i])
       if (i === str.length - 1) setTimeout(() => alert('Печать завершена'), 1000)
       i++;
@@ -398,3 +399,4 @@ printDocument = (str) => {
   }
 };
 //?Почему не выводяться пробелы в документе
+
