@@ -7,13 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <h2>Task 8.1</h2>
-    <textarea
+    <form action="" name="textareaForm">
+      <textarea
       name="someText"
       id="simpleTextarea"
       cols="30"
       rows="10"
     ></textarea>
+    </form>
+    <h2>Task 8.1</h2>
     <fieldset>
         <legend>Task 8.2</legend>
         <form action="" name="form1">
@@ -38,9 +40,32 @@
             <input type="radio" id="radio2" value="NotDeveloper" name="isDeveloper" />
             <label for="radio1">No</label><br>
     </fieldset>
+  </form>
 
+    <h2>Task 8.3</h2>
+    <button id="btnLeft">Left</button>
+    <button id="btnRight">Right</button><br>
+    <textArea name="someText" id="textareaWithHistory" cols="30" rows="10"></textArea>
+    <button id="btnTextareaSave">Save</button>
      
-    </form>
+    <h2>Task 8.4</h2>
+    
+      <!-- ФИО, номер, почта, фирма, отдел, день рождения -->
+      <fieldset>
+        <legend>NoteBook</legend>
+        <form name="NoteBookForm">        
+          <input type="Text" name="name" placeholder="Name"><br>
+          <input type="tel" name="tel" placeholder="Tel"><br>
+          <input type="email" name="mail" placeholder="@mail"><br>
+          <input type="text" name="enterprise" placeholder="enterprise"><br>
+          <input type="text" name="department" placeholder="department"><br>
+          <input type="date" name="birthday" placeholder="birthday"><br>
+          <button id="save">Save</button>
+        </form>
+        <div id="noteBookContainer"></div>
+      </fieldset>
+      
+
     <script src="app.js"></script>
   </body>
 </html>
