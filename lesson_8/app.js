@@ -166,27 +166,30 @@ const save = document.getElementById("save");
 const noteContainer = document.getElementById("note_container");
 const container = document.getElementById('noteBookContainer')
 const NoteBookFormKey = "NOTE_BOOK";
-console.dir(container);
+let tempUser = {};
 save.onclick = (ev) => {
-  ev.preventDefault();
-  let person = {};
+  //ev.preventDefault();
+  let person = {...tempUser};
+  console.log(person);
+  tempUser = {};
   for (let i = 0; i < form.children.length; i++) {
     const elem = form.children[i];
     if (elem.id !== "save" && elem.name) {
       person[elem.name] = elem.value;
     }
   }
-  person.id = new Date().getTime();
+  if (!person.id) person.id = new Date().getTime();
   saveUser(person);
-  getUsersFromNotes();
 };
+  
 const saveUser = (user) => {
   if (localStorage.hasOwnProperty(NoteBookFormKey)) {
     const localUser = JSON.parse(localStorage.getItem(NoteBookFormKey));
     let isContain = localUser.find((value) => value.id === user.id);
     if (isContain) {
-       localUser.filter(value => value.id !== user.id)
-       console.log("Pfvtyztv");
+       const filteredUser = localUser.filter(value => value.id !== user.id);
+       filteredUser.push(user);
+       localStorage.setItem(NoteBookFormKey, JSON.stringify(filteredUser));
     } else {
       localUser.push(user);
       localStorage.setItem(NoteBookFormKey, JSON.stringify(localUser));
@@ -195,12 +198,12 @@ const saveUser = (user) => {
 };
 const getUsersFromNotes = () => {
   const users = JSON.parse(localStorage.getItem(NoteBookFormKey));
+  if (!users) return;
   for (const iter of users) {
     creatUsersCard(iter);
   }
 };
 const creatUsersCard = (user) => {
-  console.dir(container);
   let card = document.createElement("div");
   for (const key in user) {
     let p = document.createElement("p");
@@ -222,7 +225,7 @@ const creatUsersCard = (user) => {
     deleteUser(user.id)
   };
   edit.onclick = function () {
-    deleteUser(user.id)
+    editUser(user.id)
   }
 };
 
@@ -231,4 +234,20 @@ deleteUser = (id) => {
   const fiteredUsers = users.filter(value => value.id !== id);
   localStorage.setItem(NoteBookFormKey, JSON.stringify(fiteredUsers));
   location.reload(true)
+};
+editUser = (id) => {
+  const users = JSON.parse(localStorage.getItem(NoteBookFormKey));
+  const editUser = users.find(value => value.id === id);
+  for (let i = 0; i < form.children.length; i++) {
+    const elem = form.children[i]; 
+      for (const iter in editUser) {
+        if (elem.id !== "save" && elem.name)  {
+          if (elem.name === iter) {
+            elem.value = editUser[iter] || ' ';
+          }
+        } ;
+      }
+  }
+  tempUser = editUser;
 }
+getUsersFromNotes();
